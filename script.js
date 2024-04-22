@@ -97,6 +97,31 @@ document.querySelector('nav__links').addEventListener('click', function (e) {
   }
 });
 
+//////////////////BUILDING TABBED COMPONENT/////////////////////
+const tabs = document.querySelectorAll('.operations_tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations_tab');
+  console.log(clicked);
+
+  //if nothing is clicked then finish this function
+  if (!clicked) return;
+
+  //remove active classes
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  tabsContent.forEach(c => c.classList.remove());
+
+  //activate tab
+  clicked.classList.add('operations__tab--active');
+
+  //activate content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
+
 //////////////////SELECTING CREATING AND DELETING ELEMENTS/////////////////////
 // selecting elements
 //selecting the document element
