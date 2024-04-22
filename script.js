@@ -288,3 +288,36 @@ document.querySelector('.nav').addEventListener('click', function (e) {
   this.style.backgroundColor = randomColor();
   console.log('LINK', e.target, e.currentTarget); // nav__link
 });
+
+//////////////////DOM TRAVERSING/////////////////////
+// walking through the DOM or selecting an element based on another element
+// very usefull when we need to select an element relative to a certain element
+const h1 = document.querySelector('h1');
+//select all the elements of h1 with the highlight class
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes); // gives us all the nodes of h1 even those that not inside h1
+console.log(h1.children); // gives us all the nodes of h1 that are inside h1
+h1.firstElementChild.style.color = 'white';
+h1.lastElementChild.style.color = 'white';
+// going upwards
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+// selects the closest element that has the style header
+h1.closest('.header').style.background = 'var(--gradient-secondary';
+h1.closest('h1').style.background = 'var(--gradient-primary';
+
+//going sideways: sibling
+// can only select the previous or next, direct siblings
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+
+// if we need all the siblings, we first must move the parent element then read teh siblings from there
+console.log(h1.parentElement.children);
+// we create an array of all the siblings
+[...h1.parentElement.children].forEach(function (el) {
+  if (el !== h1) el.style.transform = 'scale(0.5)';
+});
