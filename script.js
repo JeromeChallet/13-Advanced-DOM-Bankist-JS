@@ -6,6 +6,10 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
+const nav = document.querySelector('.nav');
+const tabs = document.querySelectorAll('.operations_tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
 
 ///////////////////////////////////////
 // Modal window
@@ -98,9 +102,6 @@ document.querySelector('nav__links').addEventListener('click', function (e) {
 });
 
 //////////////////BUILDING TABBED COMPONENT/////////////////////
-const tabs = document.querySelectorAll('.operations_tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
 
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations_tab');
@@ -121,6 +122,27 @@ tabsContainer.addEventListener('click', function (e) {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add('operations__content--active');
 });
+
+//////////////////PASSING ARGUMENTS TO EVENT HANDLER/////////////////////
+// menu fade animation
+// we can only pass one argument into the handlehover function thus we use this keyword to pass one more
+const handleHover = function (e) {
+  if (e.currentTarget.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach(el => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+//passign an argument into the handle function
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+
+nav.addEventListener('mouseout', handleHover.bind(1));
 
 //////////////////SELECTING CREATING AND DELETING ELEMENTS/////////////////////
 // selecting elements
