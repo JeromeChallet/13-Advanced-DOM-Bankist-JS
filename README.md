@@ -11,4 +11,17 @@ element.append(varName)\
 element.prepend(varName)\
 element.before(varName)\
 element.after(varName)\
-message.parentElement.removeChild(varName);\
+varName.parentElement.removeChild(varName);\
+varName.style.backgroundColor\
+varName.style.width\
+getComputedStyle(varName)\
+getComputedStyle(varName).color\
+document.documentElement.style.setProperty('--color-primary', 'orangered');\
+document.querySelector('.nav\_\_logo').alt\
+document.querySelector('.nav\_\_logo').src\
+document.querySelector('.nav\_\_logo').getAttribute('src')\
+document.querySelector('.nav\_\_logo').getAttribute('designer'));\
+logo.classList.add('');\
+logo.classList.remove('');\
+logo.classList.toggle('');\
+logo.classList.contains('');\
