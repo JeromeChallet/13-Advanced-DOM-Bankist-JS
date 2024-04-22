@@ -20,7 +20,7 @@ document.documentElement.style.setProperty('--color-primary', 'orangered');\
 document.querySelector('.nav\_\_logo').alt\
 document.querySelector('.nav\_\_logo').src\
 document.querySelector('.nav\_\_logo').getAttribute('src')\
-document.querySelector('.nav\_\_logo').getAttribute('designer'));\
+document.querySelector('.nav\_\_logo').getAttribute('designer');\
 logo.classList.add('');\
 logo.classList.remove('');\
 logo.classList.toggle('');\
