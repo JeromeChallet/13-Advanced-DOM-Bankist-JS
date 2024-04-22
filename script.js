@@ -190,3 +190,33 @@ h1.onmouseenter = function (e) {
 };
 
 setTimeout(() => h1.removeEventListener('mouseenter, alerth1'), 3000);
+
+//////////////////EVENT PROPAGATION/////////////////////
+// random color
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+
+// addEventListener only listens to element for the bubling phase but not the capturing phase
+// to do so during hte capturing pahse, set the 3rd parameter to false
+// in all 3 handlers the target element is always the same (nav__link)
+// because they handle the same event
+// also the currentTarget is the same at the this keyword
+// but the currentTarget is not the same
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('LINK', e.target, e.currentTarget); // nav__link
+  //stop event propagation
+  //e.stopPropagation();
+});
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('LINK', e.target, e.currentTarget); // nav__link
+});
+
+document.querySelector('.nav').addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('LINK', e.target, e.currentTarget); // nav__link
+});
