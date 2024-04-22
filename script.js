@@ -78,3 +78,56 @@ document
     //message.remove();
     message.parentElement.removeChild(message);
   });
+
+//////////////////STYLES ATTRIBUTES CLASSES/////////////////////
+//styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+// if we dont set the style ourselves we cannot see it in the console log
+console.log(message.style.height); // empty
+console.log(message.style.backgroundColor); //37383d
+// all the prop with all the values
+console.log(getComputedStyle(message));
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
+
+// getComputerStyle(message) is a string so we must convert ot a number first
+message.style.height =
+  Number.parseFloat(getComputerStyle(message).height, 10) + 40 + 'px';
+
+// reaasign a css property
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+// Attributes
+// access attributes of an element
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+
+logo.alt = 'beautifull logo';
+
+// only works on existing standart attributes
+console.log(logo.desginer); // undefined
+console.log(logo.getAttribute('designer')); // jerome
+
+logo.setAttribute('company', 'Bankist');
+
+//absolute version vs the relative one
+console.log(logo.src); // jerome
+console.log(logo.getAttribute('src')); // full address
+
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href);
+console.log(link.getAttribute('href'));
+
+// data attributes
+console.log(logo.dataset.versionNumber);
+
+//classes
+// allows to add or remove classes without interfering with the existing ones
+logo.classList.add('c');
+logo.classList.remove('c', 'j');
+logo.classList.toggle('c');
+logo.classList.contains('c');
+//this will overide all the existing classes so better not doing it
+//logo.className = 'jerome';
