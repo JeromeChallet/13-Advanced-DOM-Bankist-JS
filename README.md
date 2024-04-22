@@ -27,3 +27,5 @@ logo.classList.toggle('');\
 logo.classList.contains('');\
 document.querySelector('#section--1').getBoundingClientRect()\
  document.querySelector('#section--1').scrollIntoView({ behavior: 'smooth' });\
+document.querySelector('h1').onmouseenter = function (e) {}\
+document.querySelector('h1').removeEventListener('mouseenter', functionName);
