@@ -30,3 +30,16 @@ document.querySelector('#section--1').getBoundingClientRect()\
 document.querySelector('h1').onmouseenter = function (e) {}\
 document.querySelector('h1').removeEventListener('mouseenter', functionName);
 e.stopPropagation();\
+document.querySelector('h1').childNodes\
+document.querySelector('h1').children\
+document.querySelector('h1').querySelectorAll('.className')\
+document.querySelector('h1').firstElementChild\
+document.querySelector('h1').lastElementChild\
+document.querySelector('h1').parentNode\
+document.querySelector('h1').parentElement\
+document.querySelector('h1').closest('.className')\
+document.querySelector('h1').previousElementSibling\
+document.querySelector('h1').nextElementSibling\
+document.querySelector('h1').previousSibling\
+document.querySelector('h1').nextSibling\
+document.querySelector('h1').parentElement.children\
