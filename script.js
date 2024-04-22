@@ -131,3 +131,38 @@ logo.classList.toggle('c');
 logo.classList.contains('c');
 //this will overide all the existing classes so better not doing it
 //logo.className = 'jerome';
+
+//////////////////IMPLEMENTING SMOOTH SCROLLING/////////////////////
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect());
+
+  console.log('Currrent scroll (X/Y', window.pageXOffset, pageYOffset);
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  // scrolling
+  // we calculate by getting the current position + the current scroll
+  // window.scrollTo(
+  //   s1coords.left + window.pageXOffset,
+  //   s1coords.top + window.pageYOffset
+  // );
+
+  // old school method
+  window.scrollTo({
+    left: s1coords.left + window.pageXOffset,
+    top: s1coords.top + window.pageYOffset,
+    behavior: 'smooth',
+  });
+
+  section1.scrollIntoView({ behavior: 'smooth' });
+});

@@ -25,3 +25,5 @@ logo.classList.add('');\
 logo.classList.remove('');\
 logo.classList.toggle('');\
 logo.classList.contains('');\
+document.querySelector('#section--1').getBoundingClientRect()\
+ document.querySelector('#section--1').scrollIntoView({ behavior: 'smooth' });\
