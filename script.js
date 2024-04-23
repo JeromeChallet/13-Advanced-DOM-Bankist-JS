@@ -69,6 +69,43 @@ btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
+//////////////////INTERSECTION OBSERVER API/////////////////////
+// this api observes changes to the way an element intersect with another or with the viewport
+// the callback function will be called each time that the observed element is intersecting the root element at the threshold that we defined
+// menaing when the section1 is meeting the root at 10%
+// const obsCallback = function (entries, observer) {
+//   entries.forEach(entry => {
+//     console.log(entry);
+//   });
+// };
+
+// const obsOptions = {
+//   // the root is the element the target is intersecting
+//   root: null,
+//   // the % of intersection at which the observer callback will be called
+//   // 0 will trigger everytime the target element gets out of view or enters teh view
+//   threshold: [0, 0.2],
+// };
+
+// const observer = new IntersectionObserver(obsCallback, obsOptions);
+// observer.observe(section1);
+
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+
+const sticky = function (entries) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove;
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null, // for the entire viewport
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+
 //////////////////EVENT DELEGATION/////////////////////
 // page navigation
 
