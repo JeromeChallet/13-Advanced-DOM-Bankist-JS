@@ -10,6 +10,7 @@ const nav = document.querySelector('.nav');
 const tabs = document.querySelectorAll('.operations_tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
+const initialCoords = section.getBoundingClientRect();
 
 ///////////////////////////////////////
 // Modal window
@@ -99,6 +100,14 @@ document.querySelector('nav__links').addEventListener('click', function (e) {
       behavior: 'smooth',
     });
   }
+});
+
+//////////////////STICKY NAVIGATION SCROLL EVENT/////////////////////
+// this method is inneficient cause it fires all the time
+window.addEventListener('scroll', function () {
+  if (this.window.scrollY > initialCoords.top)
+    this.navigator.classList.add('sticky');
+  else this.navigator.classList.remove('sticky');
 });
 
 //////////////////BUILDING TABBED COMPONENT/////////////////////
