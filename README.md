@@ -44,3 +44,4 @@ document.querySelector('h1').previousSibling\
 document.querySelector('h1').nextSibling\
 document.querySelector('h1').parentElement.children\
 document.querySelector('h1').addEventListener('mouseout', function (e) {});\
+window.addEventListener('scroll');\
