@@ -6,6 +6,7 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
+const initialCoords = section.getBoundingClientRect();
 
 ///////////////////////////////////////
 // Modal window
@@ -120,6 +121,14 @@ tabsContainer.addEventListener('click', function (e) {
   document
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add('operations__content--active');
+});
+
+//////////////////STICKY NAVIGATION SCROLL EVENT/////////////////////
+// this method is inneficient cause it fires all the time
+window.addEventListener('scroll', function () {
+  if (this.window.scrollY > initialCoords.top)
+    this.navigator.classList.add('sticky');
+  else this.navigator.classList.remove('sticky');
 });
 
 //////////////////SELECTING CREATING AND DELETING ELEMENTS/////////////////////

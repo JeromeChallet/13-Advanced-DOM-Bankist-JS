@@ -43,3 +43,4 @@ document.querySelector('h1').nextElementSibling\
 document.querySelector('h1').previousSibling\
 document.querySelector('h1').nextSibling\
 document.querySelector('h1').parentElement.children\
+window.addEventListener('scroll');\
